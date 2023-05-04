@@ -1,0 +1,6 @@
+runs
+snapshots
+.vscode
+__pycache__
+logs
+img
