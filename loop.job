@@ -10,4 +10,4 @@
 #SBATCH --mail-type=END           # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=maximilian.mueller@wsii.uni-tuebingen.de   # Email to which notifications will be sent
 scontrol show job $SLURM_JOB_ID
-python ExtraASAM.py --dataset CIFAR100 --data_path /mnt/qb/hein/datasets/CIFAR100 --model vit_t --minimizer SAM_BN --lr 0.0001 --momentum 0.9 --weight_decay 0.0005 --batch_size 64 --epochs 200 --smoothing 0.1 --rho 0.05 --p 2    --autoaugment  --eta 0.0 --m 64 --save ./snapshots/vits_cifar --norm_adaptive L2Norm --normalize_bias --seed 0 --random_idxs_frac 0.0 --start_sam 0 --end_sam 10000   --no_bn   --base_minimizer AdamW
+python ExtraASAM.py --dataset CIFAR100 --data_path /mnt/qb/hein/datasets/CIFAR100 --model vit_s --minimizer AdamW --lr 0.0001 --momentum 0.9 --weight_decay 0.0005 --batch_size 64 --epochs 200 --smoothing 0.1 --rho 0.5 --p infinity    --autoaugment  --eta 0.0 --m 64 --save ./snapshots/vits_cifar --norm_adaptive ElementwiseLinfNormAsam --normalize_bias --seed 0 --random_idxs_frac 0.0 --start_sam 0 --end_sam 10000   --no_bn   --base_minimizer AdamW
